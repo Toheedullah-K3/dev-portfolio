@@ -55,15 +55,20 @@ export const ProjectsSection = () => {
         </p>
       </div>
 
-      <div>
+      <div className="flex flex-col mt-10">
         {portfolioProjects.map(project => (
-          <div key={project.title}>
-            <div>
+          <div key={project.title} className="bg-gray-800 rounded-3xl relative z-0 overflow-hidden after:z-10 after:content-[''] after:absolute after:inset-0 after:outline after:outline-2 after:-outline-offset-2 after:rounded-3xl after:outline-white/20 p-8">
+
+            <div className="flex">
+              <div className="bg-gradient-to-r from-emerald-300 to-sky-400 inline-flex gap-2 font-bold uppercase tracking-widest text-sm text-transparent bg-clip-text">
               <span> {project.company} </span>
+              <span>&bull;</span>
               <span> {project.year} </span>
+              </div>
+              
             </div>
-            <h3> {project.title} </h3>
-            <hr />
+            <h3 className="font-serif text-2xl mt-2"> {project.title} </h3>
+            <hr className="border-t-2 border-white/5 mt-4"/>
             <ul>
               {
                 project.results.map(result => (
