@@ -12,6 +12,9 @@ import ReactIcon from "@/assets/icons/react.svg"
 import ChromeIcon from "@/assets/icons/chrome.svg"
 import GithubIcon from "@/assets/icons/github.svg"
 
+import mapImage from "@/assets/images/map.png"
+import smileMemoji from "@/assets/images/memoji-smile.png"
+
 const toolboxItems = [
   {
     title: 'JavaScript',
@@ -39,6 +42,36 @@ const toolboxItems = [
   }
 ]
 
+const hobbies = [
+  {
+    title: 'Painting',
+    emoji: '🎨'
+  },
+  {
+    title: 'Photography',
+    emoji: '📷'
+  },
+  {
+    title: 'Gaming',
+    emoji: '🎮'
+  },
+  {
+    title: 'Hiking',
+    emoji: '🥾'
+  },
+  {
+    title: 'Music',
+    emoji: '🎵'
+  },
+  {
+    title: 'Fitness',
+    emoji: '🏋️'
+  },
+  {
+    title: 'Reading',
+    emoji: '📚'
+  }
+]
 
 export const AboutSection = () => {
   return <div>
@@ -54,7 +87,7 @@ export const AboutSection = () => {
           <h3>My Reads</h3>
           <p>Explore the books shaping my perspective.</p>
         </div>
-        <Image src={bookImage} alt="book cover"/>
+        <Image src={bookImage} alt="book cover" />
       </Card>
       <Card>
         <div>
@@ -66,14 +99,35 @@ export const AboutSection = () => {
           {
             toolboxItems.map(item => (
               <div key={item.title}>
-                <TechIcon 
-                  component= {item.iconType}
+                <TechIcon
+                  component={item.iconType}
                 />
                 <span> {item.title} </span>
               </div>
             ))
           }
         </div>
+      </Card>
+      <Card>
+        <div>
+          <StartIcon />
+          <h3>Beyond the Code</h3>
+          <p>
+            Explore my interest and hobbies beyond the digital realm
+          </p>
+          <div>
+            { hobbies.map(hobby => (
+              <div key={hobby.title}>
+                <span> {hobby.title} </span>
+                <span> {hobby.emoji} </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Card>
+      <Card>
+          <Image src={mapImage} alt="map"/>
+          <Image src={smileMemoji} alt="smiling memoji"/>   
       </Card>
     </div>
   </div>;
