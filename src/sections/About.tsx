@@ -47,31 +47,45 @@ const toolboxItems = [
 const hobbies = [
   {
     title: 'Painting',
-    emoji: '🎨'
+    emoji: '🎨',
+    top: '5%',
+    left: '5%'
   },
   {
     title: 'Photography',
-    emoji: '📷'
-  },
-  {
-    title: 'Gaming',
-    emoji: '🎮'
+    emoji: '📷',
+    top: '5%',
+    left: '50%'
   },
   {
     title: 'Hiking',
-    emoji: '🥾'
+    emoji: '🥾',
+    top: '40%',
+    left: '35%'
+  },
+  {
+    title: 'Gaming',
+    emoji: '🎮',
+    top: '35%',
+    left: '10%'
   },
   {
     title: 'Music',
-    emoji: '🎵'
+    emoji: '🎵',
+    top: '45%',
+    left: '70%'
   },
   {
     title: 'Fitness',
-    emoji: '🏋️'
+    emoji: '🏋️',
+    top: '65%',
+    left: '5%'
   },
   {
     title: 'Reading',
-    emoji: '📚'
+    emoji: '📚',
+    top: '70%',
+    left: '45%'
   }
 ]
 
@@ -109,16 +123,24 @@ export const AboutSection = () => {
             itemsWrapperClassName= "-translate-x-1/2"
           />
         </Card>
-        <Card>
+        <Card className="h-[320px] p-0 flex flex-col">
           <CardHeader
             title="Beyond the Code"
             description="Explore my interest and hobbies beyond the digital realm"
+            className="px-6 py-6"
           />
 
-          <div>
+          <div className="relative flex-1">
             {hobbies.map(hobby => (
-              <div key={hobby.title}>
-                <span> {hobby.title} </span>
+              <div 
+                key={hobby.title}
+                className="inline-flex items-center gap-2 px-6 bg-gradient-to-r from-emerald-300 to-sky-400 rounded-full py-1.5 absolute"
+                style={{
+                  top: hobby.top,
+                  left: hobby.left
+                }}
+              >
+                <span className="font-medium text-gray-950"> {hobby.title} </span>
                 <span> {hobby.emoji} </span>
               </div>
             ))}
