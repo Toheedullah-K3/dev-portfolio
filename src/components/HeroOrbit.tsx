@@ -30,7 +30,10 @@ export const HeroOrbit = ({
                 }}
 
                 >
-                    <div className="animate-spin [animation-duration:10s]">
+                    <div className={twMerge(shouldSpin === true &&
+                "animate-spin")} style={{
+                    animationDuration: spinDuration
+                }}>
                         <div className="inline-flex"
                             style={{
                                 transform: `rotate(${rotation * -1}deg)`
