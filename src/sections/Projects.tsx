@@ -2,6 +2,10 @@ import darkSaasLandingPage from "@/assets/images/dark-saas-landing-page.png";
 import lightSaasLandingPage from "@/assets/images/light-saas-landing-page.png";
 import aiStartupLandingPage from "@/assets/images/ai-startup-landing-page.png";
 
+import getNaturalMotion from "@/assets/images/getNaturalMotion.jpg"
+import ianDarrah from "@/assets/images/IanDarrah.jpg"
+import SinusAndSnooring from "@/assets/images/TexasSinus&Snooring.jpg"
+import marketPhy from "@/assets/images/marketPhy.jpg"
 
 import Image from "next/image";
 import CheckCircleIcon from "@/assets/icons/check-circle.svg"
@@ -12,40 +16,40 @@ import { Card } from "@/components/Card";
 
 const portfolioProjects = [
   {
-    company: "Acme Corp",
+    company: "My Opractics",
     year: "2022",
-    title: "Dark Saas Landing Page",
+    title: "Get Natural Motion",
     results: [
       { title: "Enhanced user experience by 40%" },
       { title: "Improved site speed by 50%" },
       { title: "Increased mobile traffic by 35%" },
     ],
-    link: "#",
-    image: darkSaasLandingPage,
+    link: "https://getnaturalmotion.com/",
+    image: getNaturalMotion,
   },
   {
-    company: "Innovative Co",
-    year: "2021",
-    title: "Light Saas Landing Page",
+    company: "YOGA",
+    year: "FITNESS",
+    title: "IAN Darrah",
     results: [
       { title: "Boosted sales by 20%" },
       { title: "Expanded customer reach by 35%" },
       { title: "Increased brand awareness by 15%" },
     ],
-    link: "#",
-    image: lightSaasLandingPage,
+    link: "https://iandarrah.com/",
+    image: ianDarrah,
   },
   {
-    company: "Quantum Dynamics",
+    company: "Marketing for Doctors",
     year: "2023",
-    title: "AI Startup Landing Page",
+    title: "Market Phy",
     results: [
       { title: "Enhanced user experience by 40%" },
       { title: "Improved site speed by 50%" },
       { title: "Increased mobile traffic by 35%" },
     ],
-    link: "#",
-    image: aiStartupLandingPage,
+    link: "https://marketphy.com/website-development-services/",
+    image: marketPhy,
   },
 ];
 
