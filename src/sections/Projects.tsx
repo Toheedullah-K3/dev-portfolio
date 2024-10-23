@@ -4,7 +4,6 @@ import aiStartupLandingPage from "@/assets/images/ai-startup-landing-page.png";
 import Image from "next/image";
 import CheckCircleIcon from "@/assets/icons/check-circle.svg"
 import ArrowUpRightIcon from "@/assets/icons/arrow-up-right.svg"
-import grainImage from "@/assets/images/grain.jpg"
 import { SectionHeader } from "@/components/SectionHeader";
 import { Card } from "@/components/Card";
 
@@ -84,7 +83,9 @@ export const ProjectsSection = () => {
                   <ul className="flex flex-col gap-4 mt-4 md:mt-5">
                     {
                       project.results.map(result => (
-                        <li className="flex gap-2 text-sm md:text-base text-white/50">
+                        <li 
+                          key={result.title}
+                        className="flex gap-2 text-sm md:text-base text-white/50">
                           <CheckCircleIcon className="size-5 md:size-6" />
                           <span> {result.title} </span>
                         </li>
