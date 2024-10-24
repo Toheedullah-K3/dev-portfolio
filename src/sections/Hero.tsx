@@ -1,3 +1,5 @@
+"use client";
+
 import memojiImage from "@/assets/images/memoji-computer.png"
 import Image from "next/image";
 import ArrowDown from "@/assets/icons/arrow-down.svg";
@@ -6,8 +8,34 @@ import StarIcon from "@/assets/icons/star.svg"
 import SparkleIcon from "@/assets/icons/sparkle.svg"
 import { HeroOrbit } from "@/components/HeroOrbit"
 
+import { useEffect } from "react";
 
 export const HeroSection = () => {
+  useEffect(() => {
+    const handleSmoothScroll = (event: MouseEvent) => {
+      event.preventDefault(); 
+      const target = (event.currentTarget as HTMLAnchorElement).getAttribute("href");
+      if (target) {
+        const element = document.querySelector(target);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    };
+
+    const scrollLink = document.querySelector("a[href='#projects']");
+    if (scrollLink) {
+      
+      const handleClick = (event: MouseEvent) => handleSmoothScroll(event);
+
+      scrollLink.addEventListener("click", handleClick as EventListener);
+
+      
+      return () => {
+        scrollLink.removeEventListener("click", handleClick as EventListener);
+      };
+    }
+  }, []);
   return (
     <div className="py-32 md:py-48 lg:py-60 relative z-0 overflow-x-clip">
       <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_70%,transparent)]">
@@ -118,15 +146,20 @@ export const HeroSection = () => {
           <p className="mt-4 text-center text-white/60 md:text-lg">I specialize in transforming design into functional, high performing web applications. Let&apos;s discuss your next peoject.</p>
         </div>
         <div className="flex flex-col md:flex-row justify-center items-center mt-8 gap-4">
-          <button className="inline-flex items-center gap-2 border border-white/15 px-6 h-12 rounded-xl">
+
+          <a 
+            href="#projects"
+            className="inline-flex items-center gap-2 border border-white/15 px-6 h-12 rounded-xl">
             <span className="font-semibold">Explore My Work</span>
             <ArrowDown className="size-4" />
 
-          </button>
-          <button className="inline-flex items-center gap-2 border border-white bg-white text-gray-900 px-6 h-12 rounded-xl">
+          </a>
+          <a  
+            href="https://wa.me/03407722304"
+            className="inline-flex items-center gap-2 border border-white bg-white text-gray-900 px-6 h-12 rounded-xl">
             <span>👋</span>
             <span className="font-semibold">Let&apos;s Connect</span>
-          </button>
+          </a>
         </div>
       </div>
     </div>
