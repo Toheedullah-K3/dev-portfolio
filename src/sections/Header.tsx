@@ -7,31 +7,28 @@ export const Header = () => {
     const handleSmoothScroll = (event: MouseEvent) => {
       const target = (event.currentTarget as HTMLAnchorElement).getAttribute("href");
 
-      // Check if the target is valid and not "#"
       if (target && target !== "#") {
-        event.preventDefault(); // Prevent the default anchor behavior
+        event.preventDefault(); 
         const element = document.querySelector(target);
         
         if (element) {
-          // Smooth scroll to the element
           element.scrollIntoView({ behavior: "smooth" });
         }
       } else if (target === "#") {
-        // Scroll to the top for Home link
-        event.preventDefault(); // Prevent the default anchor behavior
+        event.preventDefault(); 
         window.scrollTo({ top: 0, behavior: "smooth" });
       }
     };
 
-    // Select all navigation links
+
     const navLinks = document.querySelectorAll("nav a");
 
-    // Add event listeners to each link
+
     navLinks.forEach((link) => {
       link.addEventListener("click", handleSmoothScroll as EventListener);
     });
 
-    // Clean up the event listeners on component unmount
+
     return () => {
       navLinks.forEach((link) => {
         link.removeEventListener("click", handleSmoothScroll as EventListener);

@@ -7,34 +7,32 @@ import grainImage from "@/assets/images/grain.jpg"
 import StarIcon from "@/assets/icons/star.svg"
 import SparkleIcon from "@/assets/icons/sparkle.svg"
 import { HeroOrbit } from "@/components/HeroOrbit"
-
 import { useEffect } from "react";
 
 export const HeroSection = () => {
   useEffect(() => {
     const handleSmoothScroll = (event: MouseEvent) => {
-      event.preventDefault(); 
+      event.preventDefault(); // Prevent the default anchor behavior
+
       const target = (event.currentTarget as HTMLAnchorElement).getAttribute("href");
-      if (target) {
-        const element = document.querySelector(target);
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth" });
-        }
+      const element = document.querySelector(target as string);
+
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
       }
     };
 
-    const scrollLink = document.querySelector("a[href='#projects']");
-    if (scrollLink) {
-      
-      const handleClick = (event: MouseEvent) => handleSmoothScroll(event);
+    const exploreLink = document.querySelector("a[href='#projects']");
 
-      scrollLink.addEventListener("click", handleClick as EventListener);
-
-      
-      return () => {
-        scrollLink.removeEventListener("click", handleClick as EventListener);
-      };
+    if (exploreLink) {
+      exploreLink.addEventListener("click", handleSmoothScroll as EventListener);
     }
+
+    return () => {
+      if (exploreLink) {
+        exploreLink.removeEventListener("click", handleSmoothScroll as EventListener);
+      }
+    };
   }, []);
   return (
     <div className="py-32 md:py-48 lg:py-60 relative z-0 overflow-x-clip">
@@ -53,10 +51,10 @@ export const HeroSection = () => {
           <SparkleIcon className="size-8 text-emerald-300/20" />
         </HeroOrbit>
 
-        <HeroOrbit 
-          size={440} 
-          rotation={79} 
-          shouldOrbit 
+        <HeroOrbit
+          size={440}
+          rotation={79}
+          shouldOrbit
           orbitDuration="32s"
           shouldSpin
           spinDuration="3s"
@@ -68,10 +66,10 @@ export const HeroSection = () => {
           <div className="size-2 rounded-full bg-emerald-300/20"></div>
         </HeroOrbit>
 
-        <HeroOrbit 
-          size={530} 
-          rotation={178} 
-          shouldOrbit 
+        <HeroOrbit
+          size={530}
+          rotation={178}
+          shouldOrbit
           orbitDuration="36s"
           shouldSpin
           spinDuration="3s"
@@ -79,10 +77,10 @@ export const HeroSection = () => {
           <SparkleIcon className="size-10 text-emerald-300/20" />
         </HeroOrbit>
 
-        <HeroOrbit 
-          size={550} 
-          rotation={20} 
-          shouldOrbit 
+        <HeroOrbit
+          size={550}
+          rotation={20}
+          shouldOrbit
           orbitDuration="38s"
           shouldSpin
           spinDuration="6s"
@@ -90,10 +88,10 @@ export const HeroSection = () => {
           <StarIcon className="size-12 text-emerald-300" />
         </HeroOrbit>
 
-        <HeroOrbit 
-          size={590} 
-          rotation={98} 
-          shouldOrbit 
+        <HeroOrbit
+          size={590}
+          rotation={98}
+          shouldOrbit
           orbitDuration="40s"
           shouldSpin
           spinDuration="6s"
@@ -104,10 +102,10 @@ export const HeroSection = () => {
         <HeroOrbit size={650} rotation={-5} shouldOrbit orbitDuration="42s">
           <div className="size-2 rounded-full bg-emerald-300/20"></div>
         </HeroOrbit>
-        <HeroOrbit 
-          size={710} 
-          rotation={144} 
-          shouldOrbit 
+        <HeroOrbit
+          size={710}
+          rotation={144}
+          shouldOrbit
           orbitDuration="44s"
           shouldSpin
           spinDuration="3s"
@@ -119,10 +117,10 @@ export const HeroSection = () => {
           <div className="size-3 rounded-full bg-emerald-300/20"></div>
         </HeroOrbit>
 
-        <HeroOrbit 
-          size={800} 
-          rotation={-70} 
-          shouldOrbit 
+        <HeroOrbit
+          size={800}
+          rotation={-70}
+          shouldOrbit
           orbitDuration="48s"
           shouldSpin
           spinDuration="6s"
@@ -147,14 +145,14 @@ export const HeroSection = () => {
         </div>
         <div className="flex flex-col md:flex-row justify-center items-center mt-8 gap-4">
 
-          <a 
+          <a
             href="#projects"
             className="inline-flex items-center gap-2 border border-white/15 px-6 h-12 rounded-xl">
             <span className="font-semibold">Explore My Work</span>
             <ArrowDown className="size-4" />
 
           </a>
-          <a  
+          <a
             href="https://wa.me/923407722304"
             className="inline-flex items-center gap-2 border border-white bg-white text-gray-900 px-6 h-12 rounded-xl">
             <span>👋</span>
