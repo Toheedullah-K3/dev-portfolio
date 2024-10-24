@@ -155,7 +155,7 @@ export const HeroSection = () => {
 
           </a>
           <a  
-            href="https://wa.me/03407722304"
+            href="https://wa.me/923407722304"
             className="inline-flex items-center gap-2 border border-white bg-white text-gray-900 px-6 h-12 rounded-xl">
             <span>👋</span>
             <span className="font-semibold">Let&apos;s Connect</span>
